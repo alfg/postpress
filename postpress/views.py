@@ -7,7 +7,6 @@ from flask import request, redirect, url_for
 
 from postpress import config
 from postpress.models import *
-from postpress import hello
 
 app = Flask(__name__)
 
@@ -85,9 +84,5 @@ def error_page(e):
 @app.errorhandler(404)
 def not_found(e):
     return render_template('error_pages/404.html'), 404
-
-
-# Lazy Views
-app.add_url_rule('/hello', view_func=hello.hello_world)
 
 
