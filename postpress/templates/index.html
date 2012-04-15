@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>PostPress</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../static/css/custom.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../static/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../static/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../static/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../static/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">PostPress</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Posts</a></li>
+              <li><a href="#archive">Archive</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+		<div class="row">
+		    <div class="span4">
+	   			<button class="btn btn-primary" data-toggle="modal" href="#create-post">Create Post</button>
+    		</div>
+		</div>
+
+		<br />
+        {% if posts %}
+		<h4>Published Jobs</h4>
+
+		<table class="table table-striped tlinks">
+		  <thead>
+			<tr>
+			  <th>Job ID</th>
+			  <th>Type</th>
+			  <th>Title</th>
+			  <th>Location</th>
+			  <th>Salary</th>
+			</tr>
+		  </thead>
+		  <tbody>
+          {% for p in posts %}
+			<tr class="selectjob">
+			  <td job="{{ p.jobid }}">{{ p.jobid }}</td>
+			  <td job="{{ p.jobid }}">{{ p.type }}</td>
+			  <td job="{{ p.jobid }}">{{ p.title }}</td>
+			  <td job="{{ p.jobid }}">{{ p.location }}</td>
+			  <td job="{{ p.jobid }}">{{ p.salary }}</td>
+			</tr>
+          {% endfor %}
+		  </tbody>
+		</table>
+        {% else %}
+        <h4>No posts found. Create one!</h4>
+        {% endif %}
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../static/js/jquery-1.7.2.min.js"></script>
+    <script src="../static/js/bootstrap.js"></script>
+
+<script>
+$('.tlinks td').click(function() {
+    var value = $(this).attr("job");
+    window.location = "post/" + value;
+});
+</script>
+
+
+<!-- Post Modal -->
+<div class="modal hide fade" id="create-post">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <h3>Create Post</h3>
+    </div>
+    <div class="modal-body span5">
+        <form action="add" method="post">
+          <input type="text" class="span1" placeholder="Job ID" name="jobid">
+          <input type="text" class="span1" placeholder="Type" name="jobtype">
+          <input type="text" class="span2" placeholder="Location" name="location">
+          <input type="text" class="span3" placeholder="Title" name="title">
+          <input type="text" class="span1" placeholder="Salary" name="salary">
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+        <button class="btn btn-primary" type="submit">Save</button>
+    </div>
+          <!-- <textarea class="input-xlarge span5" id="textarea" rows="15"></textarea> -->
+        </form>
+    </div>
+
+</div>
+<!-- End Post Modal -->
+
+  </body>
+</html>
