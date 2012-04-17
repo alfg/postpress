@@ -17,6 +17,12 @@ def index():
 
     return render_template('index.html', posts=posts)
 
+@app.route("/settings")
+def settings():
+   
+
+    return render_template('settings.html')
+
 @app.route('/post/<job_id>')
 def show_post(job_id):
     post = Post.query.filter_by(jobid=job_id).first()

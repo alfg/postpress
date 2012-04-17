@@ -11,8 +11,8 @@ from postpress.models import db
 db.create_all()
 
 # app = Flask
-app = views.app
+app = views.app # gunicorn -w 4 run:app (gunicorn)
 
-# Return an App
+# python run.app (Development)
 if __name__ == "__main__":
     views.app.run(host=config.HOST, port=config.PORT, debug=config.DEBUG)

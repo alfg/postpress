@@ -42,7 +42,7 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li class="active"><a href="/">Posts</a></li>
-              <li><a href="#archive">Archive</a></li>
+              <li><a href="settings">Settings</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -62,11 +62,12 @@
 		<table class="table table-striped">
 		  <thead>
 			<tr>
-			  <th>Job ID</th>
+			  <th class="span1">Job ID</th>
 			  <th>Type</th>
-			  <th>Title</th>
+			  <th class="span6">Title</th>
 			  <th>Location</th>
 			  <th>Salary</th>
+			  <th>Published</th>
 			</tr>
 		  </thead>
 		  <tbody>
@@ -77,6 +78,11 @@
 			  <td>{{ post.title }}</td>
 			  <td>{{ post.location }}</td>
 			  <td>{{ post.salary }}</td>
+              {% if post.published == True %}
+			  <td><span style="color:green">Published</span></td>
+              {% else %}
+			  <td><span style="color:red">Not Published</span></td>
+              {% endif %}
 			</tr>
           {% endif %}
 		  </tbody>

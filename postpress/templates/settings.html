@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>PostPress</title>
+    <title>PostPress - Settings</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -39,11 +39,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">PostPress</a>
+          <a class="brand" href="/">PostPress</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Posts</a></li>
-              <li><a href="settings">Settings</a></li>
+              <li><a href="/">Posts</a></li>
+              <li class="active"><a href="#settings">Settings</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -51,47 +51,49 @@
     </div>
 
     <div class="container">
-		<div class="row">
-		    <div class="span4">
-	   			<button class="btn btn-primary" data-toggle="modal" href="#create-post">Create Post</button>
-    		</div>
-		</div>
 
-		<br />
-        {% if posts %}
-		<h4>Published Jobs</h4>
+        <div class="tabbable">
+            <ul class="nav nav-tabs">
+               <li class="active"><a href="#1" data-toggle="tab">Settings</a></li>
+               <li><a href="#2" data-toggle="tab">Users</a></li>
+               <li><a href="#3" data-toggle="tab">Style</a></li>
+               <li><a href="#4" data-toggle="tab">Code</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="1">
 
-		<table class="table table-striped tlinks">
-		  <thead>
-			<tr>
-			  <th class="span1">Job ID</th>
-			  <th>Type</th>
-			  <th class="span6">Title</th>
-			  <th>Location</th>
-			  <th>Salary</th>
-              <th>Published</th>
-			</tr>
-		  </thead>
-		  <tbody>
-          {% for p in posts %}
-			<tr class="selectjob">
-			  <td job="{{ p.jobid }}">{{ p.jobid }}</td>
-			  <td job="{{ p.jobid }}">{{ p.type }}</td>
-			  <td job="{{ p.jobid }}">{{ p.title }}</td>
-			  <td job="{{ p.jobid }}">{{ p.location }}</td>
-			  <td job="{{ p.jobid }}">{{ p.salary }}</td>
-              {% if p.published == True %}
-			  <td job="{{ p.jobid }}"><span style="color:green">Published</span></td>
-              {% else %}
-			  <td job="{{ p.jobid }}"><span style="color:red">Not Published</span></td>
-              {% endif %}
-			</tr>
-          {% endfor %}
-		  </tbody>
-		</table>
-        {% else %}
-        <h4>No posts found. Create one!</h4>
-        {% endif %}
+                    <form class="form-vertical">
+                      <fieldset>
+                        <legend>Legend text</legend>
+                        <div class="control-group">
+                          <label class="control-label" for="input01">Text input</label>
+                          <div class="controls">
+                            <input type="text" class="input-xlarge" id="input01">
+                            <p class="help-block">Supporting help text</p>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </form>
+
+                </div>
+                <div class="tab-pane" id="2">
+                    <p>Howdy, I'm in Section 2.</p>
+                </div>
+                <div class="tab-pane" id="3">
+                    <p>Howdy, I'm in Section 3.</p>
+                </div>
+                <div class="tab-pane" id="4">
+                    <p>Plug in the following code for the postings to display on your website.</p>
+                    <code>&lt;script&gt;asdf&lt;/script&gt;</code><br />
+
+                    <code>&lt;object type="text/html" data="http://www.google.com/"&gt; &lt;/object&gt;</code>
+
+                    <!-- Or <script type="text/javascript" src="testIFrame.js"></script>  -->
+                    <!-- window.document.write("<iframe src=\"anotherpage.html\"/>"); -->
+
+                </div>
+            </div>
+        </div>
 
     </div> <!-- /container -->
 
