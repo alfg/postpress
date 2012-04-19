@@ -1,0 +1,31 @@
+<style>
+{% include 'render/css.html' %} <!-- template containing all CSS -->
+</style>
+
+{% if posts %}
+
+<table class="table table-striped">
+  <thead>
+	<tr>
+	  <th class="span1">ID</th>
+	  <th>Type</th>
+	  <th class="span6">Title</th>
+	  <th>Location</th>
+	  <th>Salary</th>
+	</tr>
+  </thead>
+  <tbody>
+  {% for p in posts %}
+	<tr class="selectjob">
+	  <td job="{{ p.jobid }}">{{ p.jobid }}</td>
+	  <td job="{{ p.jobid }}">{{ p.type }}</td>
+	  <td job="{{ p.jobid }}">{{ p.title }}</td>
+	  <td job="{{ p.jobid }}">{{ p.location }}</td>
+	  <td job="{{ p.jobid }}">{{ p.salary }}</td>
+	</tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<h4>No Postings</h4>
+{% endif %}

@@ -20,8 +20,9 @@ def index():
 @app.route("/settings")
 def settings():
    
+    users = User.query.all()
 
-    return render_template('settings.html')
+    return render_template('settings.html', users=users)
 
 @app.route('/post/<job_id>')
 def show_post(job_id):
@@ -81,6 +82,13 @@ def update():
         return "error"
 
     return redirect(url_for('show_post', job_id=jobid))
+
+@app.route("/render")
+def render():
+
+    posts = Post.query.all()
+    
+    return render_template('render/html.html', posts=posts)
 
 # Error Pages
 @app.errorhandler(500)

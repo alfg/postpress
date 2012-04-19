@@ -77,17 +77,41 @@
 
                 </div>
                 <div class="tab-pane" id="2">
-                    <p>Howdy, I'm in Section 2.</p>
+
+
+                    <table class="table table-striped span4">
+                      <thead>
+	                    <tr>
+	                      <th>Username</th>
+	                      <th>Email</th>
+	                      <th>Permission</th>
+	                    </tr>
+                      </thead>
+                      <tbody>
+                      {% for u in users %}
+	                    <tr class="selectjob">
+	                      <td job="{{ p.jobid }}">{{ u.username }}</td>
+	                      <td job="{{ p.jobid }}">{{ u.email }}</td>
+	                      <td job="{{ p.jobid }}">{{ u.permission }}</td>
+	                    </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+
+
                 </div>
                 <div class="tab-pane" id="3">
                     <p>Howdy, I'm in Section 3.</p>
                 </div>
                 <div class="tab-pane" id="4">
-                    <p>Plug in the following code for the postings to display on your website.</p>
-                    <code>&lt;script&gt;asdf&lt;/script&gt;</code><br />
+                    <p>Plug in the following code for the postings to display on your website.</p> <br />
 
-                    <code>&lt;object type="text/html" data="http://www.google.com/"&gt; &lt;/object&gt;</code>
+                    <code>&lt;object type="text/html" data="http://localhost:5000/render"&gt;&lt;/object&gt;</code>
 
+                    <object type="text/html" width="700px" height="500px" data="http://localhost:5000/render"></object>
+
+
+                    <!-- <code>&lt;script&gt;asdf&lt;/script&gt;</code><br /> -->
                     <!-- Or <script type="text/javascript" src="testIFrame.js"></script>  -->
                     <!-- window.document.write("<iframe src=\"anotherpage.html\"/>"); -->
 
