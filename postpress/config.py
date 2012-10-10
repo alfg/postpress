@@ -9,6 +9,7 @@ config.read('config.ini')
 HOST = config.get('app', 'HOST')
 PORT = int(config.get('app', 'PORT'))
 DEBUG = config.get('app', 'DEBUG')
+ALLOW_ACCESS_ORIGIN = config.get('app', 'ALLOW_ACCESS_ORIGIN')
 
 DB = config.get('database', 'DB')
 DBDEBUG = config.get('database', 'DBDEBUG')

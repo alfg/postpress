@@ -106,7 +106,23 @@
                 <div class="tab-pane" id="4">
                     <p>Plug in the following code for the postings to display on your website.</p> <br />
 
-                    <code>&lt;object type="text/html" data="http://localhost:5000/render"&gt;&lt;/object&gt;</code>
+                    <p><code>&lt;object type="text/html" data="http://localhost:5000/render"&gt;&lt;/object&gt;</code></p>
+                    
+                    or via jQuery and AJAX:
+                    
+<pre class="prettify">
+&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"&gt;&lt;/script&gt;
+
+&lt;div id="postpress"&gt;&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+$.ajaxSetup ({  
+    cache: false  
+});  
+var ajax_load = "&lt;img src='img/load.gif' alt='loading...' &gt;";
+var loadUrl = "http://localhost:5000/render";
+$("#postpress").html(ajax_load).load(loadUrl);  
+&lt;/script&gt;
+</pre>
 
                     <object type="text/html" width="700px" height="500px" data="http://localhost:5000/render"></object>
 

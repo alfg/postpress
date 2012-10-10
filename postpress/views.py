@@ -2,7 +2,7 @@
 
 from flask import Flask
 from flask import request
-from flask import render_template
+from flask import render_template, make_response
 from flask import request, redirect, url_for
 
 from postpress import config
@@ -88,7 +88,9 @@ def render():
 
     posts = Post.query.all()
     
-    return render_template('render/html.html', posts=posts)
+    response = make_response(render_template('render/html.html', posts=posts))
+    response.headers['Access-Control-Allow-Origin'] = config.ALLOW_ACCESS_ORIGIN
+    return response
 
 # Error Pages
 @app.errorhandler(500)
