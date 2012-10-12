@@ -2,7 +2,7 @@
 
 PostPress is a small Flask web application to display job postings integrated into your website
 by inserting a snippet of Javascript. PostPress provides a simple web interface to 
-administrate and publish the job postings. PostPress is in early, but active development.
+administrate and publish the job postings. PostPress is in early development.
 
 
 ## Requirements ##
@@ -21,7 +21,7 @@ As usual, it is recommended to set this up in a virtual environment.
 
 2. Clone postpress.git:
 
-        $ git clone git://github.com/alf-/postpress.git
+        $ git clone git://github.com/alfg/postpress.git
 
 3. Run setup.py to install dependencies:
 
